@@ -13,6 +13,15 @@ runEvents();
 function runEvents(){
     // Tüm eventleri çalıştırma
     form.addEventListener("submit", addTodo);
+    document.addEventListener("DOMContentLoaded", pageLoaded);
+}
+
+// Eklenen todoları storage ile ui eşitlemesi
+function pageLoaded(){
+    checkTodosFromStorage();
+    todos.forEach(function(todo){
+        addTodoToUI(todo);
+    });
 }
 
 function addTodo(e){
